@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
+/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 22:30:24 by thomasgerma       #+#    #+#             */
-/*   Updated: 2019/11/04 23:37:43 by thomasgerma      ###   ########.fr       */
+/*   Created: 2019/11/05 12:28:20 by thgermai          #+#    #+#             */
+/*   Updated: 2019/11/05 12:46:12 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <ctype.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-int				ft_isalpha(int c);
-
-int main(int ac, char **av)
+int	ft_toupper(int c)
 {
-	(void)ac;
-	(void)av;
-
-	printf("%d\n", ft_isalpha('L'));
-	printf("%d\n", isalpha('L'));
-
-	return (0);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }

@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
+/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 23:18:41 by thomasgerma       #+#    #+#             */
-/*   Updated: 2019/11/04 23:48:17 by thomasgerma      ###   ########.fr       */
+/*   Updated: 2019/11/05 09:40:41 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 static int		ft_isupper(int c)
 {
-	if ((unsigned char)c >= 101 && (unsigned char)c <= 132)
+	if ((unsigned char)c >= 'A' && (unsigned char)c <= 'Z')
 		return (1);
 	return (0);
 }
 
 static int		ft_islower(int c)
 {
-	if ((unsigned char)c >= 141 && (unsigned char)c <= 172)
+	if ((unsigned char)c >= 'a' && (unsigned char)c <= 'z')
 		return (1);
 	return (0);
 }
