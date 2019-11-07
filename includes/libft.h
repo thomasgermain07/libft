@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 10:28:33 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/05 18:16:51 by thgermai         ###   ########.fr       */
+/*   Updated: 2019/11/07 22:56:49 by thomasgerma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string.h>
 # include <strings.h>
+# include <unistd.h>
 
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
@@ -30,6 +31,8 @@ char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 void		ft_bzero(void *s, size_t n);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putchar_fd(char c, int fd);
 void		*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 void		*ft_memcpy(void *dst, const void *src, size_t n);
