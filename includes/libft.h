@@ -6,7 +6,7 @@
 /*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 10:28:33 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/07 22:56:49 by thomasgerma      ###   ########.fr       */
+/*   Updated: 2019/11/07 23:12:42 by thomasgerma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 void		ft_bzero(void *s, size_t n);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putchar_fd(char c, int fd);
+void		ft_putnbr_fd(int n, int fd);
+void		ft_putendl_fd(char *s, int fd);
 void		*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 void		*ft_memcpy(void *dst, const void *src, size_t n);

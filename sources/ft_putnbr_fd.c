@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 11:05:17 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/07 23:13:46 by thomasgerma      ###   ########.fr       */
+/*   Created: 2019/11/07 22:57:37 by thomasgerma       #+#    #+#             */
+/*   Updated: 2019/11/07 23:10:02 by thomasgerma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <ctype.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
+#include "../includes/libft.h"
 
-#include "./includes/libft.h"
-
-int main(int ac, char **av)
+void	ft_putnbr_fd(int n, int fd)
 {
-	(void)ac;
-	(void)av;
+	unsigned int	nb;
 
-	int fd;
-
-	fd = open("text.txt", O_RDWR);
-
-	ft_putendl_fd("Bonsoir a toute et a tous", fd);
-
-	close(fd);
-
-	return (0);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nb = -n;
+	}
+	else
+		nb = n;
+	if (nb >= 10)
+		ft_putnbr_fd((nb / 10), fd);
+	ft_putchar_fd((nb % 10) + 48, fd);
 }

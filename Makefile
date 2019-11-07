@@ -6,7 +6,7 @@
 #    By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/03 14:34:05 by thgermai          #+#    #+#              #
-#    Updated: 2019/11/07 22:55:29 by thomasgerma      ###   ########.fr        #
+#    Updated: 2019/11/07 23:12:39 by thomasgerma      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ SRCS = ./sources/ft_atoi.c\
 	./sources/ft_strlcpy.c\
 	./sources/ft_putchar_fd.c\
 	./sources/ft_putstr_fd.c\
+	./sources/ft_putnbr_fd.c\
+	./sources/ft_putendl_fd.c\
 
 OBJS = $(SRCS:.c=.o)
 INCLUDES = ./includes/libft.h
