@@ -6,7 +6,7 @@
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 13:19:26 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/06 13:09:33 by thgermai         ###   ########.fr       */
+/*   Updated: 2019/11/07 17:10:01 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int		check(const char *s, int c)
 	int i;
 
 	i = 1;
-	while(s[i])
+	while (s[i])
 	{
 		if (s[i] == c)
 			return (1);

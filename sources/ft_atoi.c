@@ -6,7 +6,7 @@
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 18:02:49 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/05 18:18:26 by thgermai         ###   ########.fr       */
+/*   Updated: 2019/11/07 17:08:23 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,4 @@ int		ft_atoi(const char *str)
 		i++;
 	}
 	return (total * neg);
-
-
 }
