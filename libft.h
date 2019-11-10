@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 10:28:33 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/10 14:26:36 by thgermai         ###   ########.fr       */
+/*   Updated: 2019/11/10 23:15:01 by thomasgerma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <strings.h>
 # include <stdlib.h>
 # include <unistd.h>
+
 // a supprimer //
 # include <stdio.h>
 /////////////////
@@ -69,5 +70,6 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 t_list		*ft_lstnew(void *content);
 t_list		*ft_lstlast(t_list *lst);
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

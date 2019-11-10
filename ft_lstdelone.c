@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 12:55:08 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/10 12:57:17 by thgermai         ###   ########.fr       */
+/*   Updated: 2019/11/10 23:19:40 by thomasgerma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

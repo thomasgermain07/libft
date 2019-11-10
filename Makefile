@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+         #
+#    By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/03 14:34:05 by thgermai          #+#    #+#              #
-#    Updated: 2019/11/10 14:32:27 by thgermai         ###   ########.fr        #
+#    Updated: 2019/11/10 23:15:13 by thomasgerma      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ BONUS_SRCS = ./ft_lstnew.c\
 			./ft_lstdelone.c\
 			./ft_lstclear.c\
 			./ft_lstiter.c\
+			./ft_lstmap.c\
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
