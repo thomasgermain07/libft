@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
+/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 14:33:26 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/10 23:23:40 by thomasgerma      ###   ########.fr       */
+/*   Created: 2019/11/11 14:23:57 by thgermai          #+#    #+#             */
+/*   Updated: 2019/11/11 16:44:13 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,27 @@
 
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list		*new;
-	t_list		*begin;
-	t_list		*next;
+	t_list		*new_elem;
+	t_list		*new_list;
+	t_list		*origin;
 
+	origin = lst;
 	if (!lst)
 		return (NULL);
-	next = lst->next;
-	new = ft_lstnew(f(lst->content));
-	begin = new;
-	ft_lstdelone(lst, del);
-	lst = next;
-	while (lst)
+	if (!(new_elem = ft_lstnew(f(lst->content))))
+		return (NULL);
+	new_list = new_elem;
+	while (lst->next)
 	{
-		next = lst->next;
-		new = ft_lstnew(f(lst->content));
-		ft_lstadd_back(&begin, new);
-		ft_lstdelone(lst, del);
-		lst = next;
+		lst = lst->next;
+		if (!(new_elem = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_elem);
+		new_elem = NULL;
 	}
-	return (begin);
+	ft_lstclear(&origin, del);
+	return (new_list);
 }

@@ -6,7 +6,7 @@
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:11:54 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/10 10:29:40 by thgermai         ###   ########.fr       */
+/*   Updated: 2019/11/11 14:10:05 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char			**ft_split(const char *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	size = ft_count_sep(s, c);
+	size = ft_count_sep(s, c) + 1;
 	if (size == 0)
 		size++;
 	if (!(tab = malloc(sizeof(char *) * (size + 1))))
@@ -59,9 +59,10 @@ char			**ft_split(const char *s, char c)
 			s++;
 		temp = ft_create_line(s, c);
 		s = s + ft_strlen(temp);
-		tab[i] = ft_strdup(temp);
-		i++;
+		if (!(tab[i] = ft_strdup(temp)))
+			return (NULL);
 		free(temp);
+		i++;
 	}
 	tab[i] = NULL;
 	return (tab);

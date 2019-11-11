@@ -6,13 +6,13 @@
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 11:49:32 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/10 11:52:02 by thgermai         ###   ########.fr       */
+/*   Updated: 2019/11/11 14:24:56 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lstsize(t_list	*lst)
+int		ft_lstsize(t_list *lst)
 {
 	int		size;
 

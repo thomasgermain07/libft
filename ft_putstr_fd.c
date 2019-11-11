@@ -6,7 +6,7 @@
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 22:30:32 by thomasgerma       #+#    #+#             */
-/*   Updated: 2019/11/10 10:29:40 by thgermai         ###   ########.fr       */
+/*   Updated: 2019/11/11 13:05:44 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
+	if (!s || !fd)
 		return ;
 	write(fd, s, ft_strlen(s));
 }

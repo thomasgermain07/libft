@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
+/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:05:17 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/10 23:32:06 by thomasgerma      ###   ########.fr       */
+/*   Updated: 2019/11/11 15:39:18 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,34 +24,37 @@ void	ft_putstr(void *s)
 
 void	*ft_strupper(void *s)
 {
-	(void)s;
-	return ("Salut");
+	for (int i = 0; ((char *)s)[i]; i++)
+	{
+		if (((char *)s)[i] != '\n' && ((char *)s)[i] != ' ')
+			((char *)s)[i]++;
+	}
+	return (s);
 }
 
 int main(void)
 {
-	t_list		*block1 = ft_lstnew("Bonsoir");
-	t_list		*block2 = ft_lstnew("Tout");
-	t_list		*block3 = ft_lstnew("Le");
-	t_list		*block4 = ft_lstnew("Monde");
-	t_list		*block5 = ft_lstnew("Merci!!");
-	t_list		*block6 = ft_lstnew("SuceCul");
+	t_list		*block1 = ft_lstnew(ft_strdup("Bonsoir "));
+	t_list		*block2 = ft_lstnew(ft_strdup("tout le monde "));
+	t_list		*block3 = ft_lstnew(ft_strdup("ceci est un "));
+	t_list		*block4 = ft_lstnew(ft_strdup("test et challah "));
+	t_list		*block5 = ft_lstnew(ft_strdup("ca passe\n"));
 
 	ft_lstadd_back(&block1, block2);
 	ft_lstadd_back(&block1, block3);
 	ft_lstadd_back(&block1, block4);
 	ft_lstadd_back(&block1, block5);
-	ft_lstadd_back(&block1, block6);
 
 	t_list		*new = ft_lstmap(block1, &ft_strupper, &ft_putstr);
 
-	while (new)
-	{
-		printf("%s\n", (char *)new->content);
-		new = new->next;
-	}
+	(void)new;
+	// int i = 0;
 
-	while (1)
-		;
+	// while (new)
+	// {
+	// 	printf("%s %i\n", (char *)new->content, i++);
+	// 	new = new->next;
+	// }
+
 	return (0);
 }
