@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:05:17 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/11 15:39:18 by thgermai         ###   ########.fr       */
+/*   Updated: 2019/11/12 00:51:26 by thomasgerma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,44 +17,50 @@
 
 #include "libft.h"
 
-void	ft_putstr(void *s)
+void	delete_elem(void *content)
 {
-	write(1, (char *)s, ft_strlen((char *)s));
+	printf("deleted elem\n");
+	free(content);
 }
 
 void	*ft_strupper(void *s)
 {
-	for (int i = 0; ((char *)s)[i]; i++)
+	char		*temp;
+
+	temp = ft_strdup((char *)s);
+	for (int i = 0; temp[i]; i++)
 	{
-		if (((char *)s)[i] != '\n' && ((char *)s)[i] != ' ')
-			((char *)s)[i]++;
+		if (temp[i] != '\n' && temp[i] != ' ' && temp[i])
+			temp[i]++;
 	}
-	return (s);
+	return (temp);
 }
 
 int main(void)
 {
-	t_list		*block1 = ft_lstnew(ft_strdup("Bonsoir "));
-	t_list		*block2 = ft_lstnew(ft_strdup("tout le monde "));
-	t_list		*block3 = ft_lstnew(ft_strdup("ceci est un "));
-	t_list		*block4 = ft_lstnew(ft_strdup("test et challah "));
-	t_list		*block5 = ft_lstnew(ft_strdup("ca passe\n"));
+	char	*text1 = ft_strdup("Bonsoir a toute");
+	char	*text2 = ft_strdup("Bonsoir a toute");
+	char	*text3 = ft_strdup("Bonsoir a toute");
+	char	*text4 = ft_strdup("Bonsoir a toute");
+	char	*text5 = ft_strdup("Bonsoir a toute");
+
+	t_list		*block1 = ft_lstnew(text1);
+	t_list		*block2 = ft_lstnew(text2);
+	t_list		*block3 = ft_lstnew(text3);
+	t_list		*block4 = ft_lstnew(text4);
+	t_list		*block5 = ft_lstnew(text5);
 
 	ft_lstadd_back(&block1, block2);
 	ft_lstadd_back(&block1, block3);
 	ft_lstadd_back(&block1, block4);
 	ft_lstadd_back(&block1, block5);
 
-	t_list		*new = ft_lstmap(block1, &ft_strupper, &ft_putstr);
+	t_list		*new = ft_lstmap(block1, &ft_strupper, &delete_elem);
 
-	(void)new;
-	// int i = 0;
-
-	// while (new)
-	// {
-	// 	printf("%s %i\n", (char *)new->content, i++);
-	// 	new = new->next;
-	// }
-
+	while (new)
+	{
+		printf("%s\n", (char *)new->content);
+		new = new->next;
+	}
 	return (0);
 }
