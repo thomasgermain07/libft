@@ -6,7 +6,7 @@
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 10:28:33 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/11 15:56:49 by thgermai         ###   ########.fr       */
+/*   Updated: 2019/11/12 11:44:58 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@
 # include <strings.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-// a supprimer //
-# include <stdio.h>
-/////////////////
 
 typedef struct		s_list
 {
@@ -46,7 +42,8 @@ char				*ft_strdup(const char *s1);
 char				*ft_itoa(int n);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
-char				*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char				*ft_strnstr(const char *haystack,
+						const char *needle, size_t len);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				**ft_split(const char *s, char c);
 void				ft_bzero(void *s, size_t n);
@@ -70,6 +67,7 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 t_list				*ft_lstnew(void *content);
 t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+						void (*del)(void *));
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
+/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 11:23:14 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/12 00:37:40 by thomasgerma      ###   ########.fr       */
+/*   Created: 2019/11/12 10:02:48 by thgermai          #+#    #+#             */
+/*   Updated: 2019/11/12 10:02:50 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

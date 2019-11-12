@@ -6,23 +6,30 @@
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:11:54 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/11 14:10:05 by thgermai         ###   ########.fr       */
+/*   Updated: 2019/11/12 11:09:32 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_count_sep(const char *s, char c)
+static size_t	ft_count_word(const char *s, char c)
 {
 	size_t			count;
+	size_t			i;
 
 	count = 0;
-	while (*s)
+	i = 0;
+	while (s[i])
 	{
-		if (*s == c && s[1] && s[1] != c)
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i] && s[i] != c)
 			count++;
-		s++;
+		while (s[i] && s[i] != c)
+			i++;
 	}
+	if (!count)
+		return (0);
 	return (count);
 }
 
@@ -40,7 +47,7 @@ static char		*ft_create_line(const char *s, char c)
 
 char			**ft_split(const char *s, char c)
 {
-	size_t			size;
+	size_t			word;
 	size_t			i;
 	char			**tab;
 	char			*temp;
@@ -48,12 +55,10 @@ char			**ft_split(const char *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	size = ft_count_sep(s, c) + 1;
-	if (size == 0)
-		size++;
-	if (!(tab = malloc(sizeof(char *) * (size + 1))))
+	word = ft_count_word(s, c);
+	if (!(tab = malloc(sizeof(char *) * (word + 1))))
 		return (0);
-	while (i < size)
+	while (i < word)
 	{
 		while (*s == c)
 			s++;

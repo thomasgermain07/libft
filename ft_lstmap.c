@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
+/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 14:23:57 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/12 00:51:30 by thomasgerma      ###   ########.fr       */
+/*   Created: 2019/11/12 11:41:51 by thgermai          #+#    #+#             */
+/*   Updated: 2019/11/12 11:41:53 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
