@@ -6,7 +6,7 @@
 #    By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/03 14:34:05 by thgermai          #+#    #+#              #
-#    Updated: 2019/11/10 23:15:13 by thomasgerma      ###   ########.fr        #
+#    Updated: 2019/11/20 10:03:13 by thgermai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS = ./ft_atoi.c\
    	./ft_memchr.c\
 	./ft_strlen.c\
 	./ft_bzero.c\
-    ./ft_memcmp.c\
+	./ft_memcmp.c\
 	./ft_strncmp.c\
 	./ft_isalnum.c\
 	./ft_memcpy.c\
@@ -45,19 +45,18 @@ SRCS = ./ft_atoi.c\
 	./ft_split.c\
 	./ft_itoa.c\
 	./ft_strmapi.c\
-
-BONUS_SRCS = ./ft_lstnew.c\
-			./ft_lstadd_front.c\
-			./ft_lstsize.c\
-			./ft_lstlast.c\
-			./ft_lstadd_back.c\
-			./ft_lstdelone.c\
-			./ft_lstclear.c\
-			./ft_lstiter.c\
-			./ft_lstmap.c\
+	./ft_memdel.c\
+	./ft_lstnew.c\
+	./ft_lstadd_front.c\
+	./ft_lstsize.c\
+	./ft_lstlast.c\
+	./ft_lstadd_back.c\
+	./ft_lstdelone.c\
+	./ft_lstclear.c\
+	./ft_lstiter.c\
+	./ft_lstmap.c\
 
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 INCLUDES = libft.h
 CFLAGS = -Wall -Wextra -Werror
 
@@ -68,9 +67,6 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
-
-bonus : $(NAME) $(BONUS_OBJS)
-	ar rcs $(NAME) $(BONUS_OBJS)
 
 clean :
 	rm -f $(OBJS) $(BONUS_OBJS)
