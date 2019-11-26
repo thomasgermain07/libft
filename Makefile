@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+         #
+#    By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/03 14:34:05 by thgermai          #+#    #+#              #
-#    Updated: 2019/11/20 10:03:13 by thgermai         ###   ########.fr        #
+#    Updated: 2019/11/26 09:25:37 by thgermai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-SRCS = ./ft_atoi.c\
+SRCS = ./get_next_line.c\
+	./ft_atoi.c\
    	./ft_memchr.c\
 	./ft_strlen.c\
 	./ft_bzero.c\
@@ -57,23 +58,22 @@ SRCS = ./ft_atoi.c\
 	./ft_lstmap.c\
 
 OBJS = $(SRCS:.c=.o)
-INCLUDES = libft.h
+INCLUDES = ./libft.h\
+
 CFLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
-.c.o : $(SRCS) $(BONUS_SRCS)
+.c.o : $(SRCS)
 	gcc -c $(CFLAGS) -I $(INCLUDES) $^ -o $(^:.c=.o)
 
 $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 clean :
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
 
 fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
-
-.PHONY = all clean fclean re
