@@ -6,7 +6,7 @@
 #    By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/03 14:34:05 by thgermai          #+#    #+#              #
-#    Updated: 2019/11/26 09:25:37 by thgermai         ###   ########.fr        #
+#    Updated: 2019/11/26 15:05:57 by thgermai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRCS = ./get_next_line.c\
 	./ft_strtrim.c\
 	./ft_putchar_fd.c\
 	./ft_putendl_fd.c\
+	./ft_putnbr_base.c\
 	./ft_putnbr_fd.c\
 	./ft_putstr_fd.c\
 	./ft_split.c\
