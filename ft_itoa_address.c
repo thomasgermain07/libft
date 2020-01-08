@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_itoa_address.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 10:54:18 by thgermai          #+#    #+#             */
-/*   Updated: 2020/01/03 16:32:32 by thgermai         ###   ########.fr       */
+/*   Created: 2019/12/01 10:49:36 by thgermai          #+#    #+#             */
+/*   Updated: 2019/12/02 17:00:23 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-char	*ft_strdup(const char *s1)
+char			*ft_itoa_address(unsigned long long int n)
 {
-	char *str;
+	char		*str;
+	char		*base;
 
-	if (!s1 || !(str = malloc(sizeof(char) * (ft_strlen(s1) + 1))))
+	base = ft_strdup("0123456789abcdef");
+	if (!(str = (char *)ft_calloc(sizeof(char), 2)))
 		return (NULL);
-	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
+	else if (n >= 16)
+	{
+		free(str);
+		str = ft_strjoin_f12(ft_itoa_address(n / 16),
+			ft_itoa_address(n % 16));
+	}
+	else if (n < 16 && n >= 0)
+	{
+		str[0] = base[n];
+		str[1] = '\0';
+	}
+	free(base);
 	return (str);
 }

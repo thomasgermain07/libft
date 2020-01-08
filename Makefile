@@ -6,12 +6,13 @@
 #    By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/03 14:34:05 by thgermai          #+#    #+#              #
-#    Updated: 2019/11/26 15:05:57 by thgermai         ###   ########.fr        #
+#    Updated: 2020/01/08 13:09:25 by thgermai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 SRCS = ./get_next_line.c\
+	./ft_find_in.c\
 	./ft_atoi.c\
    	./ft_memchr.c\
 	./ft_strlen.c\
@@ -38,6 +39,9 @@ SRCS = ./get_next_line.c\
 	./ft_strdup.c\
 	./ft_substr.c\
 	./ft_strjoin.c\
+	./ft_strjoin_f1.c\
+	./ft_strjoin_f2.c\
+	./ft_strjoin_f12.c\
 	./ft_strtrim.c\
 	./ft_putchar_fd.c\
 	./ft_putendl_fd.c\
@@ -46,6 +50,7 @@ SRCS = ./get_next_line.c\
 	./ft_putstr_fd.c\
 	./ft_split.c\
 	./ft_itoa.c\
+	./ft_itoa_unsigned.c\
 	./ft_strmapi.c\
 	./ft_memdel.c\
 	./ft_lstnew.c\
@@ -57,24 +62,44 @@ SRCS = ./get_next_line.c\
 	./ft_lstclear.c\
 	./ft_lstiter.c\
 	./ft_lstmap.c\
-
+	./ft_exit.c\
+	./ft_itoa_base.c\
+	./ft_itoa_address.c\
+	./ft_str_toupper.c\
+	./ft_str_tolower.c\
+	./ft_printf/ft_printf.c\
+	./ft_printf/pf_arg.c\
+	./ft_printf/pf_fill_1_5.c\
+	./ft_printf/pf_fill_6_9.c\
+	./ft_printf/pf_parsing.c\
+	./ft_printf/pf_precision.c\
+	./ft_printf/pf_width.c
 OBJS = $(SRCS:.c=.o)
-INCLUDES = ./libft.h\
-
+INCLUDES = ./libft.h
 CFLAGS = -Wall -Wextra -Werror
+LOGFILE=$(LOGPATH) `date +'%y.%m.%d %H:%M:%S'`
 
 all : $(NAME)
 
 .c.o : $(SRCS)
-	gcc -c $(CFLAGS) -I $(INCLUDES) $^ -o $(^:.c=.o)
+	@(echo "Compiling sources $^")
+	@(gcc -c $(CFLAGS) -I $(INCLUDES) $^ -o $(^:.c=.o))
 
 $(NAME) : $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@(ar rcs $(NAME) $(OBJS))
+	@(echo "Libft created")
 
 clean :
-	rm -f $(OBJS)
+	@(rm -f $(OBJS) $(INCLUDES:.h=.h.gch))
+	@(echo "libft cleaned")
 
 fclean : clean
-	rm -f $(NAME)
+	@(rm -f $(NAME))
+	@(echo "libft deleted")
+
+git : fclean
+	git add *
+	git commit -m "$(LOGFILE)"
+	git push
 
 re : fclean all

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_find_in.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 10:54:18 by thgermai          #+#    #+#             */
-/*   Updated: 2020/01/03 16:32:32 by thgermai         ###   ########.fr       */
+/*   Created: 2019/12/04 10:06:17 by thgermai          #+#    #+#             */
+/*   Updated: 2019/12/04 11:15:16 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-
-char	*ft_strdup(const char *s1)
+int		ft_find_in(char *str, char c)
 {
-	char *str;
+	int		i;
 
-	if (!s1 || !(str = malloc(sizeof(char) * (ft_strlen(s1) + 1))))
-		return (NULL);
-	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
-	return (str);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
 }
