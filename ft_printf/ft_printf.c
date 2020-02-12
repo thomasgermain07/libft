@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 08:41:57 by thgermai          #+#    #+#             */
-/*   Updated: 2020/01/08 10:59:03 by thgermai         ###   ########.fr       */
+/*   Updated: 2020/02/12 19:00:59 by thomasgerma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 #include "../libft.h"
 
@@ -27,9 +29,9 @@ const char		*ft_refresh_str(const char *str)
 	return (str + next_arg);
 }
 
-int				redict_type(va_list args, t_param *param)
+int				redict_type(va_list args, t_param *param, int fd)
 {
-	int		(*fptr[9])(va_list, t_param *);
+	int		(*fptr[9])(va_list, t_param *, int fd);
 
 	if (!param)
 		return (ft_exit(-1, 0));
@@ -44,42 +46,57 @@ int				redict_type(va_list args, t_param *param)
 	fptr[6] = &pf_fill_hexa;
 	fptr[7] = &pf_fill_hexa_caps;
 	fptr[8] = &pf_fill_modulo;
-	return ((*fptr[param->specifier])(args, param));
+	return ((*fptr[param->specifier])(args, param, fd));
 }
 
-int				print_str(const char *str, int i)
+int				print_str(const char *str, int i, int fd)
 {
 	char		*output;
 
 	if (!(output = ft_substr(str, 0, next_arg_index(str))))
 		return (ft_exit(-1, 0));
-	ft_putstr_fd(output, 1);
+	ft_putstr_fd(output, fd);
 	return (ft_exit(i + ft_strlen(output), 1, output));
+}
+
+int			getting_arg(const char *str, va_list args, int fd, int *i)
+{
+	int ret;
+
+	ret = 0;
+	if (str[next_arg_index(str)] == '%')
+	{
+		ret = redict_type(args, parsing_param(str + next_arg_index(str), args), fd);
+		if (ret != -1)
+			*i += ret;
+		else
+			*i = -1;
+	}
+	return (*i);
+}
+
+int				check_fd(const char *str)
+{
+	if (str[0] && str[1] && str[0] == '%' && str[1] == 'e')
+		return (2);
+	return (1);
 }
 
 int				ft_printf(const char *str, ...)
 {
 	va_list		args;
 	int			i;
-	int			ret;
+	int			fd;
 
 	i = 0;
-	ret = 0;
+	fd = check_fd(str);
 	va_start(args, str);
 	while (*str)
 	{
-		if ((i = print_str(str, i)) == -1)
+		if ((i = print_str(str, i, fd)) == -1)
 			break ;
-		if (str[next_arg_index(str)] == '%')
-		{
-			if ((ret = redict_type(args, parsing_param(str +
-				next_arg_index(str), args))) == -1)
-			{
-				i = -1;
-				break ;
-			}
-			i += ret;
-		}
+		if (getting_arg(str, args, fd, &i) == -1)
+		 	break ;
 		str = ft_refresh_str(str);
 	}
 	va_end(args);
