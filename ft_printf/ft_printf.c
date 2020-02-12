@@ -6,7 +6,7 @@
 /*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 08:41:57 by thgermai          #+#    #+#             */
-/*   Updated: 2020/02/12 19:00:59 by thomasgerma      ###   ########.fr       */
+/*   Updated: 2020/02/12 19:06:29 by thomasgerma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ int				redict_type(va_list args, t_param *param, int fd)
 
 	if (!param)
 		return (ft_exit(-1, 0));
-	if (param->specifier < 0)
+	if (param->specifier == -1)
 		return (ft_exit(-1, 1, param));
+	if (param->specifier == -999)
+		return (ft_exit(0, 1, param));
 	fptr[0] = &pf_fill_char;
 	fptr[1] = &pf_fill_str;
 	fptr[2] = &pf_fill_add;

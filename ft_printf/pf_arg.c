@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pf_arg.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/26 19:34:40 by thomasgerma       #+#    #+#             */
-/*   Updated: 2020/01/08 10:59:14 by thgermai         ###   ########.fr       */
+/*   Updated: 2020/02/12 19:05:11 by thomasgerma      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int			define_type(char c)
 	char	*value;
 
 	i = 0;
+	if (c == 'e')
+		return (-999);
 	value = ft_strdup(VALID_VALUE);
 	while (value[i] && value[i] != c)
 		i++;
