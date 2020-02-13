@@ -6,7 +6,7 @@
 /*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 10:28:33 by thgermai          #+#    #+#             */
-/*   Updated: 2020/02/12 18:58:26 by thomasgerma      ###   ########.fr       */
+/*   Updated: 2020/02/13 10:29:53 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,6 @@ char				*fill_width_right(char *str, t_param *param);
 char				*check_width_num(char *str, t_param *param);
 char				*check_precision_num(char *str, t_param *param);
 char				*fill_precision(char *str, t_param *param);
+int					check_fd(const char *str);
 
 #endif
