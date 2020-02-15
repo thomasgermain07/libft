@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomasgermain <thomasgermain@student.42    +#+  +:+       +#+        */
+/*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 10:28:33 by thgermai          #+#    #+#             */
-/*   Updated: 2020/02/13 10:29:53 by thgermai         ###   ########.fr       */
+/*   Updated: 2020/02/15 18:29:27 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ typedef struct		s_param
 	int				justify;
 	char			fill;
 }					t_param;
+
+typedef struct		s_ptrlst
+{
+	void			*ptr;
+	void			(*fptr)(void *);
+}					t_ptrlst;
 
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -85,7 +91,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				ft_memdel(void **ap);
-void				*ft_exit_str(void *ret, int n, ...);
+void				*ft_exit_ptr(void *ret, int n, ...);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_putnbr_base(int nbr, char *base);
 void				*ft_calloc(size_t count, size_t size);
@@ -110,20 +116,24 @@ int					next_arg_index(const char *str);
 const char			*ft_refresh_str(const char *str);
 int					define_type(char c);
 t_param				*parsing_param(const char *str, va_list args);
-int					pf_fill_char(va_list args, t_param *param, int fd);
-int					pf_fill_str(va_list args, t_param *param, int fd);
-int					pf_fill_add(va_list args, t_param *param, int fd);
-int					pf_fill_deci(va_list args, t_param *param, int fd);
-int					pf_fill_int(va_list args, t_param *param, int fd);
-int					pf_fill_unsi(va_list args, t_param *param, int fd);
-int					pf_fill_hexa(va_list args, t_param *param, int fd);
-int					pf_fill_hexa_caps(va_list args, t_param *param, int fd);
-int					pf_fill_modulo(va_list args, t_param *param, int fd);
+int					pf_fill_char(va_list args, t_param *param);
+int					pf_fill_str(va_list args, t_param *param);
+int					pf_fill_add(va_list args, t_param *param);
+int					pf_fill_deci(va_list args, t_param *param);
+int					pf_fill_int(va_list args, t_param *param);
+int					pf_fill_unsi(va_list args, t_param *param);
+int					pf_fill_hexa(va_list args, t_param *param);
+int					pf_fill_hexa_caps(va_list args, t_param *param);
+int					pf_fill_modulo(va_list args, t_param *param);
 char				*fill_width_left(char *str, t_param *param);
 char				*fill_width_right(char *str, t_param *param);
 char				*check_width_num(char *str, t_param *param);
 char				*check_precision_num(char *str, t_param *param);
 char				*fill_precision(char *str, t_param *param);
-int					check_fd(const char *str);
+
+void				ft_free_ptrlst(t_list **lst);
+void				ft_del_ptr(t_list **lst, void *to_del);
+void				*ft_add_ptr(void *ptr, t_list **lst, void (*fptr)(void *));
+void				ft_print_add_lst(t_list **lst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 10:35:16 by thgermai          #+#    #+#             */
-/*   Updated: 2020/01/08 10:59:21 by thgermai         ###   ########.fr       */
+/*   Updated: 2020/01/09 16:56:52 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int			get_value(va_list args)
 
 void		assigning_param(const char *str, t_param **param, va_list args)
 {
-	while (ft_find_in(VALID_FLAGS, *str) || ft_isdigit(*str))
+	while (ft_find_in(VALID_FLAGS, *str) != -1 || ft_isdigit(*str))
 	{
 		if (*str == '-')
 			(*param)->justify = LEFT;

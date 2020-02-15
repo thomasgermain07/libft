@@ -6,7 +6,7 @@
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 11:35:32 by thgermai          #+#    #+#             */
-/*   Updated: 2019/11/10 10:38:34 by thgermai         ###   ########.fr       */
+/*   Updated: 2020/01/09 21:09:32 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (sub = ft_strdup("\0"));
 	if (!(sub = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	s = s + start;
-	ft_strlcpy(sub, s, len + 1);
+	ft_strlcpy(sub, s + start, len + 1);
 	sub[len] = '\0';
 	return (sub);
 }

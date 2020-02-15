@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: thgermai <thgermai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/13 10:26:02 by thgermai          #+#    #+#             */
-/*   Updated: 2020/02/13 10:26:10 by thgermai         ###   ########.fr       */
+/*   Created: 2020/01/03 08:43:13 by thgermai          #+#    #+#             */
+/*   Updated: 2020/01/08 10:59:19 by thgermai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int				pf_fill_unsi(va_list args, t_param *param, int fd)
+int				pf_fill_unsi(va_list args, t_param *param)
 {
 	unsigned int		i;
 	char				*num;
@@ -29,11 +29,11 @@ int				pf_fill_unsi(va_list args, t_param *param, int fd)
 		param->fill = ' ';
 	}
 	num = check_width_num(num, param);
-	ft_putstr_fd(num, fd);
+	ft_putstr_fd(num, 1);
 	return (ft_exit(ft_strlen(num), 2, num, param));
 }
 
-int				pf_fill_hexa(va_list args, t_param *param, int fd)
+int				pf_fill_hexa(va_list args, t_param *param)
 {
 	int		i;
 	char	*num;
@@ -56,11 +56,11 @@ int				pf_fill_hexa(va_list args, t_param *param, int fd)
 		else
 			num = fill_width_right(num, param);
 	}
-	ft_putstr_fd(num, fd);
+	ft_putstr_fd(num, 1);
 	return (ft_exit(ft_strlen(num), 2, num, param));
 }
 
-int				pf_fill_hexa_caps(va_list args, t_param *param, int fd)
+int				pf_fill_hexa_caps(va_list args, t_param *param)
 {
 	int		i;
 	char	*num;
@@ -83,11 +83,11 @@ int				pf_fill_hexa_caps(va_list args, t_param *param, int fd)
 		else
 			num = fill_width_right(num, param);
 	}
-	ft_putstr_fd(num, fd);
+	ft_putstr_fd(num, 1);
 	return (ft_exit(ft_strlen(num), 2, num, param));
 }
 
-int				pf_fill_modulo(va_list args, t_param *param, int fd)
+int				pf_fill_modulo(va_list args, t_param *param)
 {
 	char *temp;
 
@@ -101,6 +101,6 @@ int				pf_fill_modulo(va_list args, t_param *param, int fd)
 		else
 			temp = fill_width_right(temp, param);
 	}
-	ft_putstr_fd(temp, fd);
+	ft_putstr_fd(temp, 1);
 	return (ft_exit(ft_strlen(temp), 2, temp, param));
 }
